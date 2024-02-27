@@ -11,20 +11,24 @@ def bt(left, right, score, R):
 
     if left:
         m_r = max(0, left - R)
+        tmp = []
         for i in range(m_r, left):
             if i in bombs:
-                left = i
+                tmp.append(i)
                 score = score + 1
-                break
+        if tmp:
+            left = min(tmp)
         else:
             left = False
     if right:
         M_r = min(1000000000, right + R)
+        tmp = []
         for i in range(right + 1, M_r + 1):
             if i in bombs:
-                right = i
+                tmp.append(i)
                 score = score + 1
-                break
+        if tmp:
+            right = max(tmp)
         else:
             right = False
 
@@ -40,6 +44,6 @@ for _ in range(N):
 ans = 0
 
 for b in bombs:
-    bt(b, b, 0, 1)
+    bt(b, b, 1, 1)
 
 print(ans)
