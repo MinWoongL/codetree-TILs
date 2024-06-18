@@ -68,6 +68,14 @@ def phase1(lst):
                     if 90*t < ans_rct[2]:
                         ans_rct = [r, c, 90 * t]
                         ans_lst = l
+                    elif 90*t == ans_rct[2]:
+                        if c < ans_rct[1]:
+                            ans_rct = [r, c, 90 * t]
+                            ans_lst = l
+                        elif c == ans_rct[1]:
+                            if r < ans_rct[0]:
+                                ans_rct = [r, c, 90 * t]
+                                ans_lst = l
 
     return ans, ans_lst
 
