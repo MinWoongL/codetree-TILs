@@ -52,12 +52,13 @@ def phase1(lst):
     # 행, 열, 회전 수(90, 180, 270)
     ans_rct = [0, 0, 0]
     ans_lst = []
-    for c in range(1, 4):
-        for r in range(1, 4):
+    for r in range(1, 4):
+        for c in range(1, 4):
             tmp = [[lst[i][j] for j in range(5)] for i in range(5)]
             for t in range(1, 4):
                 tmp = rotate(tmp, r, c)
-                cnt, l = boom_check(tmp)
+                b_tmp = [[tmp[i][j] for j in range(5)] for i in range(5)]
+                cnt, l = boom_check(b_tmp)
 
                 if cnt > ans:
                     ans = cnt
