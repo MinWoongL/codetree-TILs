@@ -55,7 +55,7 @@ def phase1(lst):
     for c in range(1, 4):
         for r in range(1, 4):
             tmp = [[lst[i][j] for j in range(5)] for i in range(5)]
-            for t in range(3):
+            for t in range(1, 4):
                 tmp = rotate(tmp, r, c)
                 cnt, l = boom_check(tmp)
 
@@ -64,7 +64,7 @@ def phase1(lst):
                     ans_rct = [r, c, 90 * t]
                     ans_lst = l
                 elif cnt == ans:
-                    if t < ans_rct[2]:
+                    if 90*t < ans_rct[2]:
                         ans_rct = [r, c, 90 * t]
                         ans_lst = l
 
